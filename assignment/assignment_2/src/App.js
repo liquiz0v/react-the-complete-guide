@@ -22,7 +22,7 @@ class App extends Component{
         const currentList = [...this.state.splString];
         currentList.splice(index, 1);
 
-        this.setState({splString: currentList});
+        this.setState({splString: currentList, length: this.state.length - 1});
 
     };
 
