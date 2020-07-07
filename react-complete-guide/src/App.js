@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person'
+import Person from './Person/Person';
+import styled from "styled-components";
+// import Radium, { StyleRoot } from "radium";
 
 class App extends Component {
   state = {
@@ -46,37 +48,58 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "green",
+      color: "white",
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ":hover": { // css pseudo-class used in jsx
+        backgroundColor: 'lightgreen',
+        color: "black"
+      }
     };
 
     let persons = null;
 
     if (this.state.showPersons === true){
       persons = (
-          <div>
-            {this.state.persons.map((person, index) => {
-              return <Person
+          // <StyleRoot>
+            <div>
+              {this.state.persons.map((person, index) => {
+                return <Person
                   click={() => this.deletePersonHandler(index)}
                   name={person.name}
                   age={person.age}
                   key={person.id}
                   changed={(event) => this.nameChangedHandler(event, person.id)}/>
-            })}
-          </div>
+              })}
+            </div>
+          // </StyleRoot>
       );
+      // style.backgroundColor = "red";
+      // style[":hover"] = { // another example of applying/changing
+      //   backgroundColor: 'salmon',
+      //       color: "black"
+      // };
     }
+
+    const classes = [];
+    if(this.state.persons.length <= 2){
+      classes.push("red"); // ["red"]
+    }
+    if(this.state.persons.length <= 1){
+      classes.push("bold"); // ["red", "bold"]
+    }
+
 
     return (
       <div className="App">
         <h1>Test React App</h1>
-        <p>Some paragraph here</p>
-        <button
-            style={style}
-            onClick={this.togglePersonsHandler}>Toggle persons</button>
+        <p className={classes.join(" ")}>Some paragraph here</p>
+        <StyledButton
+            alt={this.state.showPersons}
+            onClick={this.togglePersonsHandler}>Toggle persons</StyledButton>
         {persons}
       </div>
     );
@@ -84,4 +107,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App; //Higher Order Component (Radium)
