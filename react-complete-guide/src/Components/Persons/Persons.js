@@ -14,7 +14,12 @@ class Persons extends Component{
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         console.log('[Persons.js] shouldComponentUpdate');
-        return true;
+        if(nextProps.persons !== this.props.persons) { // If the nextProps isn't changed, then component isn't updating.
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -48,6 +53,6 @@ class Persons extends Component{
         });
     }
 
-};
+}
 
 export default Persons;
