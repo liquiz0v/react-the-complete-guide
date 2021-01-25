@@ -1,4 +1,4 @@
-import Aux from '../../../hoc/Aux/Aux';
+import Aux from '../../../hoc/Auxillary/Auxillary';
 import Button from '../../UI/Button/Button';
 
 import React, {Component} from 'react';
