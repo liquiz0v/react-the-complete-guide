@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classes from "./Person.css";
 import styled from "styled-components";
-import Aux from '../../../hoc/Aux'
+import Aux from '../../../hoc/Auxillary'
 import withClass from "../../../hoc/WithClass";
 // import Radium from "radium";
 import PropTypes from 'prop-types';

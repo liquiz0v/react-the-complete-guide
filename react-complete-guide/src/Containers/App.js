@@ -6,7 +6,7 @@ import Persons from '../Components/Persons/Persons'
 // import Radium, { StyleRoot } from "radium";
 import Cockpit from '../Components/Cockpit/Cockpit'
 import withClass from "../hoc/WithClass";
-import Aux from '../hoc/Aux';
+import Aux from '../hoc/Auxillary';
 import AuthContext from '../context/auth-context';
 
 
